@@ -8,33 +8,26 @@
 import UIKit
 
 class ViewController: UIViewController {
-    var isSun = true
-    var count = 0
+    private var isSun = true
+    private var count = 0
 
-    @IBOutlet weak var countLabel: UILabel!
-    @IBOutlet weak var changeButton: UIButton!
-    @IBOutlet weak var skyImageView: UIImageView!
+    @IBOutlet weak private var countLabel: UILabel!
+    @IBOutlet weak private var changeButton: UIButton!
+    @IBOutlet weak private var skyImageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
 
-    @IBAction func buttonDidTap(_ sender: Any) {
+    @IBAction private func buttonDidTap(_ sender: Any) {
         isSun.toggle()
         count += 1
         countLabel.text = "Значение счётчика: \(count)"
         toggleIcon()
     }
     
-    func toggleIcon() {
-        if isSun {
-            skyImageView.image = UIImage(systemName: "sun.max")
-            skyImageView.tintColor = .systemYellow
-        }
-        else {
-            skyImageView.image = UIImage(systemName: "moon")
-            skyImageView.tintColor = .gray
-        }
+    private func toggleIcon() {
+        skyImageView.image = UIImage(systemName: isSun ? "sun.max" : "moon")
+        skyImageView.tintColor = isSun ? .systemYellow : .gray
     }
     
 }
