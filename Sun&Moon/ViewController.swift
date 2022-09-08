@@ -22,7 +22,7 @@ class ViewController: UIViewController {
     @IBAction func buttonDidTap(_ sender: Any) {
         isSun.toggle()
         count += 1
-        countLabel.text = "Значение счётчика: " + String(count)
+        countLabel.text = "Значение счётчика: \(count)"
         toggleIcon()
     }
     
